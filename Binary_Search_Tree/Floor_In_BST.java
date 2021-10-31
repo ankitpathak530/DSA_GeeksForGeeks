@@ -1,9 +1,9 @@
 package GeeksForGeeks.Binary_Search_Tree;
 
 
-/* Floor:- We search for given element in tree if found we return the node 
- *                                             if not found we return largest number in tree that is less than element.
- * 
+/* Floor:- We search for given key in tree if found we return the node 
+ *                                             if not found we return largest element in tree that is less than key.
+ * Time Complexity is O(h)
  * 
 class Node
 {
@@ -20,7 +20,7 @@ public class Floor_In_BST {
      {
     	 
      }
-     public static Node returnFloor(Node root,int key)
+     public static Node getFloor(Node root,int key)
      {
     	  Node res = null;
     	 
@@ -31,12 +31,12 @@ public class Floor_In_BST {
         		  break;
         	  
         	  else if(key > root.val) {
-        		  root = returnFloor(root.right,key);
+        		  root = getFloor(root.right,key);
         	  }
         	  else
         	  {
         		   res = root;
-        		   root = returnFloor(root.left,key);
+        		   root = getFloor(root.left,key);
         	  }
     	  }
     	return res;
