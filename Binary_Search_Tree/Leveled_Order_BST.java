@@ -26,6 +26,60 @@ public class Leveled_Order_BST {
 
 
 class Test22{
+	
+	// 1 way
+	//Function to return the level order traversal of a tree.
+    static ArrayList <Integer> levelOrder(Node node) 
+    {
+        // Your code here
+        ArrayList<Integer> levelOrderList = new ArrayList<Integer>();
+        
+        
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(node);
+        queue.add(null);  //Add null if required to print new Line 
+        
+        
+        while(!queue.isEmpty())
+        {
+            Node currNode = queue.remove();
+            
+            if(currNode == null)
+            {
+                if(queue.isEmpty())
+                    break;
+                else
+                   queue.add(null);
+            }
+            else
+            {
+                levelOrderList.add(currNode.data);
+                
+                if(currNode.left != null)
+                {
+                    queue.add(currNode.left);
+                }
+                if(currNode.right != null)
+                {
+                    queue.add(currNode.right);
+                }
+            }
+        }
+        
+        return levelOrderList;
+        
+    }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// 2n way
 	static ArrayList<Integer> levelOrder(Node Node) {
         ArrayList<Integer> rs = new ArrayList<Integer>();
         
