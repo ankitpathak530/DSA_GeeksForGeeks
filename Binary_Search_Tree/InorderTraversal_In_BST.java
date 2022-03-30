@@ -43,4 +43,35 @@ public class InorderTraversal_In_BST {
 	    
 	    return result;
 	}
+	
+	
+	public static ArrayList<Integer> getInorder(Node root)
+	{
+		ArrayList<Integer> result = new ArrayList<Integer>();
+		Stack<Node> stack = new Stack<Node>();
+		
+		Node temp = root;
+		
+		while(true)
+		{
+			if(temp != null)
+			{
+				 stack.push(temp);
+			    	 temp = temp.left;
+			}
+			else
+			{
+				if(stack.isEmpty())
+					break;
+			        temp = stack.pop();
+				result.add(temp.data);
+				temp = temp.right;
+			}
+		}
+		return result;
+	}
+		
+	
+	
+	
 }
